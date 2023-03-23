@@ -13,7 +13,37 @@ import { Service } from './service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
+  name = 'Angular';
+  age = 40;
+  address = '台中市';
+
+  user = {
+    name: 'Angular ', 
+    age:40, 
+    address: '台中市'
+  }
+
+  numArr = [1, 2, 3, 4, 5, 6, 7];
+
+  constructor(){
+    this.user.name = 'NGClass';
+    
+    //numArr陣列每一個值*2
+    this.numArr.filter(x => x *= 2);
+
+    //取得numArr陣列中的偶數
+    //方法一使用filter效能好
+    let newArr = this.numArr.filter(x => x % 2 === 0);
+    //方法二同樣寫法效能差
+    for(var i = 0; i < this.numArr.length; i++){
+      if(this.numArr[i] % 2 === 0){
+        //偶數塞入另一陣列
+      }
+    }
+  }
+}
+/*export class AppComponent implements AfterViewInit {
   name = 'Angular';
 
   @ViewChild(HelloComponent, { static: true })
@@ -34,4 +64,4 @@ export class AppComponent implements AfterViewInit {
     console.log('service ', this.helloService);
     console.log('cdr ', this.helloCdr);
   }
-}
+}*/
